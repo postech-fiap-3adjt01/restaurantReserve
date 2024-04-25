@@ -1,0 +1,46 @@
+<mxfile host="65bd71144e">
+    <diagram id="JsKaUldWpSdYFOOg8hcP" name="Page-1">
+        <mxGraphModel dx="791" dy="765" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="7" style="edgeStyle=none;html=1;fontSize=16;" edge="1" parent="1" source="2" target="3">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" style="edgeStyle=none;html=1;fontSize=16;" edge="1" parent="1" source="2" target="4">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;&lt;b&gt;Restaurante&lt;br&gt;&lt;br&gt;id&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; uuid&lt;br&gt;name&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; string&lt;br&gt;localização&amp;nbsp; &amp;nbsp; string&lt;br&gt;cozinha&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; string&lt;br&gt;horario&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;string&amp;nbsp;&lt;br&gt;capacidade&amp;nbsp; &amp;nbsp; string&lt;br&gt;&lt;/b&gt;&lt;/font&gt;&lt;div style=&quot;font-size: 16px;&quot;&gt;&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;perimeterSpacing=1;spacingTop=7;spacing=9;fillColor=#a20025;fontColor=#ffffff;strokeColor=#6F0000;" vertex="1" parent="1">
+                    <mxGeometry x="50" y="40" width="210" height="210" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=16;" edge="1" parent="1" source="3" target="6">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;&lt;b&gt;Mesa&lt;br&gt;&lt;br&gt;id&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; uuid&lt;br&gt;restaurantId&amp;nbsp; &amp;nbsp; string&lt;br&gt;&lt;br&gt;&lt;/b&gt;&lt;/font&gt;&lt;div style=&quot;font-size: 16px;&quot;&gt;&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;perimeterSpacing=1;spacingTop=7;spacing=9;fillColor=#6a00ff;fontColor=#ffffff;strokeColor=#3700CC;" vertex="1" parent="1">
+                    <mxGeometry x="65" y="355" width="180" height="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;&lt;b&gt;Comentários&lt;br&gt;&lt;br&gt;id&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;uuid&lt;br&gt;descrição&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;string&lt;br&gt;avaliação&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; int&lt;br&gt;usuárioId&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; uuid&lt;br&gt;restauranteId&amp;nbsp; uuid&lt;br&gt;&lt;/b&gt;&lt;/font&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;perimeterSpacing=1;spacingTop=7;spacing=9;fillColor=#6a00ff;fontColor=#ffffff;strokeColor=#3700CC;" vertex="1" parent="1">
+                    <mxGeometry x="340" y="55" width="180" height="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" style="edgeStyle=none;html=1;fontSize=16;" edge="1" parent="1" source="5" target="4">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" style="edgeStyle=none;html=1;fontSize=16;" edge="1" parent="1" source="5" target="6">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;&lt;b&gt;Usuário&lt;br&gt;&lt;br&gt;id&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; uuid&lt;br&gt;name&amp;nbsp; &amp;nbsp;string&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/b&gt;&lt;/font&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;perimeterSpacing=1;spacingTop=7;spacing=9;fillColor=#a20025;fontColor=#ffffff;strokeColor=#6F0000;" vertex="1" parent="1">
+                    <mxGeometry x="590" y="75" width="140" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;&lt;b&gt;Reserva&lt;br&gt;&lt;br&gt;id&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; uuid&lt;br&gt;timestamp&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;localDateTime&lt;br&gt;mesaId&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;uuid&lt;br&gt;usuárioId&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;uuid&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;br&gt;&lt;/b&gt;&lt;/font&gt;&lt;div style=&quot;font-size: 16px;&quot;&gt;&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;perimeterSpacing=1;spacingTop=0;spacing=9;fillColor=#6a00ff;fontColor=#ffffff;strokeColor=#3700CC;" vertex="1" parent="1">
+                    <mxGeometry x="540" y="325" width="245" height="245" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="Rotas:&lt;br&gt;- buscar restaurants por nome, localização ou tipo de cozinha&lt;br&gt;- Definir o status da mesa de acordo com as reservas" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;align=left;spacingLeft=3;" vertex="1" parent="1">
+                    <mxGeometry x="110" y="640" width="250" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="Qualidade de software:&lt;br&gt;- JUnit&lt;br&gt;- Testes integrados e inspeção de codigo&lt;br&gt;- Testes de integração no controller, CI e BDD&lt;br&gt;- Testes não funcionais: carga e desempenho.&lt;br&gt;Cobertura de testes&amp;nbsp;&lt;br&gt;- Deploy" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fillColor=#0050ef;fontColor=#ffffff;strokeColor=#001DBC;align=left;spacingLeft=8;" vertex="1" parent="1">
+                    <mxGeometry x="400" y="640" width="296" height="240" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
