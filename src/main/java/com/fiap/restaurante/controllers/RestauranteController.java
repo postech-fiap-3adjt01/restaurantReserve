@@ -1,9 +1,8 @@
-package com.fiap.restaurante.controller;
+package com.fiap.restaurante.controllers;
 
 
-import com.fiap.restaurante.Dto.RestauranteCreateDto;
-import com.fiap.restaurante.entity.Restaurante;
-import com.fiap.restaurante.repository.RestauranteRepository;
+import com.fiap.restaurante.interfaces.RestauranteCreateDto;
+import com.fiap.restaurante.external.persistance.entites.Restaurante;
 import com.fiap.restaurante.service.RestauranteService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

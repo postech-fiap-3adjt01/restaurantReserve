@@ -1,4 +1,4 @@
-package com.fiap.restaurante.Dto;
+package com.fiap.restaurante.interfaces;
 
 
 import jakarta.validation.constraints.NotBlank;

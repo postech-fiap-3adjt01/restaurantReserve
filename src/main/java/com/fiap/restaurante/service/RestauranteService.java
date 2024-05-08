@@ -1,8 +1,8 @@
 package com.fiap.restaurante.service;
 
-import com.fiap.restaurante.Dto.RestauranteCreateDto;
-import com.fiap.restaurante.entity.Restaurante;
-import com.fiap.restaurante.repository.RestauranteRepository;
+import com.fiap.restaurante.interfaces.RestauranteCreateDto;
+import com.fiap.restaurante.external.persistance.entites.Restaurante;
+import com.fiap.restaurante.external.persistance.repositories.RestauranteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

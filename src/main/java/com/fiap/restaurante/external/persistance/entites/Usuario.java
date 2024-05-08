@@ -1,4 +1,4 @@
-package com.fiap.restaurante.entity;
+package com.fiap.restaurante.external.persistance.entites;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -22,6 +22,9 @@ public class Usuario {
 
     public String nome;
 
-    @OneToMany(mappedBy = "usuario")
-    public List<Reserva> reservaList;
+    @OneToMany(mappedBy = "usuario_id")
+    public List<Reserva> reservas;
+
+    @OneToMany(mappedBy = "usuario_id")
+    public List<Comentario> comentarios;
 }

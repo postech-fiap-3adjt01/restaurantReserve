@@ -1,21 +1,20 @@
-package com.fiap.restaurante.entity;
+package com.fiap.restaurante.external.persistance.entites;
 
 
-import ch.qos.logback.core.net.server.Client;
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
+import java.util.UUID;
+
 @Entity
-@Table(name = "reservaMesa")
+@Table(name = "reserva")
 @Getter
 @Setter
 @Builder
 @RequiredArgsConstructor
 @AllArgsConstructor
-
-public class ReservaMesa {
+public class Reserva {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public UUID id;
@@ -30,10 +29,10 @@ public class ReservaMesa {
     public LocalDateTime endDate;
 
     @ManyToOne
-    @JoinColumn(name = "restaurante_id")
-    public Restaurante restaurante;
+    @JoinColumn(name = "mesa_id")
+    public Mesa mesa;
 
     @ManyToOne
-    @JoinColumn(name = "client_id")
-    public Client client;
+    @JoinColumn(name = "usuario_id")
+    public Usuario usuario;
 }

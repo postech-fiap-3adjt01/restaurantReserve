@@ -1,0 +1,1 @@
+Aqui ficam as entidades usadas desconsiderando a conecção com o banco de dados
