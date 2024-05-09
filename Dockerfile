@@ -1,14 +1,16 @@
-# Maven 
-FROM maven:3.8.1-openjdk-11-slim AS builder
-WORKDIR /app
-COPY pom.xml .
-RUN mvn -e -B dependency:resolve
-COPY src ./src
-RUN mvn clean -e -B package
- 
-# Java
-FROM eclipse-temurin:21-jdk-alpine
-VOLUME /app
-COPY target/*.jar app.jar
+#
+# BUILD STAGE
+#
+FROM maven:3-eclipse-temurin-17 AS build
+COPY . .
+RUN mvn clean package -Pprod -DskipTests
+
+
+#
+# PACKAGE STAGE
+#
+FROM eclipse-temurin:17-alpine
+COPY --from=build /target/*.jar runner.jar
 EXPOSE 8080
-ENTRYPOINT ["sh", "-c", "java -Djava.security.egd=file:/dev/./urandom -Dspring.profiles.active=prod -Duser.timezone=UTC -jar /app.jar"]
+ENTRYPOINT ["sh", "-c", "java -Djava.security.egd=file:/dev/./urandom -Dspring.profiles.active=prod -Duser.timezone=UTC -jar runner.jar"]
+
