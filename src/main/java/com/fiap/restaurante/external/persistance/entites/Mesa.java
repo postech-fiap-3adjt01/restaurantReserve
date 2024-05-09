@@ -21,7 +21,7 @@ public class Mesa {
     @JoinColumn(name = "restaurante_id")
     public Restaurante restaurante;
 
-    @OneToMany(mappedBy = "mesa_id")
+    @OneToMany(mappedBy = "mesa")
     public List<Reserva> reservas;
 
 }

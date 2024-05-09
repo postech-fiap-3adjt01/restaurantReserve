@@ -31,6 +31,6 @@ public class Restaurante {
     @JoinColumn(name = "horario_id")
     public Horario horario;
 
-    @OneToMany(mappedBy = "restaurante_id")
+    @OneToMany(mappedBy = "restaurante")
     public List<Mesa> mesas;
 }

@@ -22,9 +22,9 @@ public class Usuario {
 
     public String nome;
 
-    @OneToMany(mappedBy = "usuario_id")
+    @OneToMany(mappedBy = "usuario")
     public List<Reserva> reservas;
 
-    @OneToMany(mappedBy = "usuario_id")
+    @OneToMany(mappedBy = "usuario")
     public List<Comentario> comentarios;
 }
