@@ -20,10 +20,16 @@ public class Restaurante {
     public UUID id;
 
     public String nome;
+
     public String localizacao;
+
     public String cozinha;
-    public String horario;
+
     public Integer capacidade;
+
+    @OneToOne
+    @JoinColumn(name = "horario_id")
+    public Horario horario;
 
     @OneToMany(mappedBy = "restaurante_id")
     public List<Mesa> mesas;
