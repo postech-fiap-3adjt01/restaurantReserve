@@ -1,6 +1,18 @@
-spring.application.name=restaurante
-spring.datasource.url=jdbc:postgresql://localhost:5432/localhost
-spring.datasource.username=admin
-spring.datasource.password=12345
-spring.jpa.hibernate.ddl-auto=none
-spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+server:
+  port: 8080
+
+spring:
+  application:
+    name: restaurant
+  datasource:
+    url: jdbc:postgresql://localhost:5432/localhost
+    username: admin
+    password: 12345
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+

@@ -1,32 +1,49 @@
 package com.fiap.restaurante.controllers;
 
 
-import com.fiap.restaurante.interfaces.RestauranteCreateDto;
+import com.fiap.restaurante.entities.RestauranteEntity;
 import com.fiap.restaurante.external.persistance.entites.Restaurante;
+import com.fiap.restaurante.interfaces.RestauranteCreateDto;
 import com.fiap.restaurante.service.RestauranteService;
-import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import com.fiap.restaurante.usecases.RestauranteUseCasesImpl;
+import lombok.RequiredArgsConstructor;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
+/**
+ * Controller de Restaurante.
+ **/
 @RestController
+@RequestMapping("restaurante")
+@RequiredArgsConstructor
 public class RestauranteController {
 
-    @Autowired
-    private RestauranteService restauranteService;
+  private final RestauranteUseCasesImpl restauranteUseCases;
 
-    @GetMapping("/restaurante")
-    public List<Restaurante> findAll() {
-        return restauranteService.findAll();
-    }
+  /**
+   * Procura por todos os restaurantes.
+   **/
+  @GetMapping
+  public ResponseEntity<Object> findAll(@RequestParam String query) {
+    return new ResponseEntity<>(restauranteUseCases.findAll(query), HttpStatus.OK);
+  }
 
-    @PostMapping("/restaurante")
-    public Restaurante create(@RequestBody @Valid RestauranteCreateDto dto) {
-        return restauranteService.create(dto);
+  /**
+   * Cria um novo restaurante.
+   **/
+  @PostMapping(
+          consumes = MediaType.APPLICATION_JSON_VALUE,
+          produces = MediaType.APPLICATION_JSON_VALUE
+  )
+  public ResponseEntity<Object> create(@RequestBody RestauranteCreateDto dto) {
+    try {
+      return ResponseEntity.status(HttpStatus.CREATED).body(restauranteUseCases.create(dto));
+    } catch (Exception error) {
+      return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(error.getMessage());
     }
+  }
 
 }

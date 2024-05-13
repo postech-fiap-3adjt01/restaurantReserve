@@ -1,4 +1,4 @@
-package com.fiap.restaurante.external.persistance.jpaRepositories;
+package com.fiap.restaurante.external.persistance.jparepositories;
 
 import com.fiap.restaurante.external.persistance.entites.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;

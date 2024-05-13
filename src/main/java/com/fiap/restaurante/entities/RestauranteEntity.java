@@ -1,24 +1,28 @@
 package com.fiap.restaurante.entities;
 
-import java.time.LocalDateTime;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+/**
+ * Entidade de Restaurante.
+ **/
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class RestauranteEntity {
-    private String nome;
-    private String localizacao;
-    private  String cozinha;
-    private Integer capacidade;
-    private HorarioEntity horario;
+  @NotEmpty(message = "Um restaurante deve ter o campo nome preenchido")
+  private String nome;
 
-    public RestauranteEntity(
-            String nome,
-            String localizacao,
-            String cozinha,
-            Integer capacidade,
-            HorarioEntity horario) {
-       this.nome = nome;
-       this.localizacao = localizacao;
-       this.cozinha = cozinha;
-       this.capacidade = capacidade;
-       this.horario = horario;
-    }
+  private String localizacao;
+  @NotEmpty(message = "Um restaurante deve ter o campo cozinha preenchido")
+  private String cozinha;
+  @NotNull(message = "Um restaurante deve ter o campo capacidade preenchido")
+  private Integer capacidade;
+  @NotEmpty(message = "Um restaurante deve ter sempre um horario preenchido")
+  private HorarioEntity horario;
 }

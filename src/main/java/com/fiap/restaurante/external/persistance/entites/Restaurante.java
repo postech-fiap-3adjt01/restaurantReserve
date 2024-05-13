@@ -1,36 +1,54 @@
 package com.fiap.restaurante.external.persistance.entites;
 
-import jakarta.persistence.*;
-import lombok.*;
 
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import java.util.List;
 import java.util.UUID;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Table(name = "restaurante")
-@Builder
-@Getter
-@Setter
-@RequiredArgsConstructor
-@AllArgsConstructor
-@ToString
+
+
+
+/**
+ * Entidade de Restaurante.
+ **/
 @Entity
+@Table(name = "restaurante")
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Restaurante {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    public UUID id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  public UUID id;
 
-    public String nome;
+  @Column(nullable = false)
+  @NotEmpty(message = "Um restaurante deve ter o campo nome preenchido")
+  public String nome;
 
-    public String localizacao;
+  @Column(nullable = false)
+  @NotEmpty(message = "Um restaurante deve ter o campo localização preenchido")
+  public String localizacao;
 
-    public String cozinha;
+  @Column(nullable = false)
+  @NotEmpty(message = "Um restaurante deve ter o campo cozinha preenchido")
+  public String cozinha;
 
-    public Integer capacidade;
+  @Column(nullable = false)
+  @NotNull(message = "Um restaurante deve ter o campo capacidade preenchido")
+  public Integer capacidade;
 
-    @OneToOne
-    @JoinColumn(name = "horario_id")
-    public Horario horario;
+  @OneToOne
+  @JoinColumn(name = "horario_id")
+  public Horario horario;
 
-    @OneToMany(mappedBy = "restaurante")
-    public List<Mesa> mesas;
+  @OneToMany
+  @JoinColumn(name = "reserva")
+  public List<Reserva> reservas;
 }
