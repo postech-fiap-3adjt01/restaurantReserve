@@ -23,7 +23,7 @@ public class ReservaGateway {
   /**
    * Lista reservas.
    **/
-  public List<ReservaEntity> getAllRestauranteReservas(UUID restauranteId) {
+  public List<ReservaEntity> findAll(UUID restauranteId) {
     List<Reserva> reservas = this.reservaJpaRepository.findByRestauranteId(restauranteId);
     return reservas.stream()
             .map(reserva -> new ReservaEntity(
@@ -34,7 +34,7 @@ public class ReservaGateway {
             .collect(Collectors.toList());
   }
 
-  public Reserva save(Reserva reserva) {
+  public Reserva create(Reserva reserva) {
     return this.reservaJpaRepository.save(reserva);
   }
 }

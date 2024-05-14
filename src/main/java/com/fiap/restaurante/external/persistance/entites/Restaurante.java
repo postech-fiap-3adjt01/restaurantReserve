@@ -29,19 +29,15 @@ public class Restaurante {
   public UUID id;
 
   @Column(nullable = false)
-  @NotEmpty(message = "Um restaurante deve ter o campo nome preenchido")
   public String nome;
 
   @Column(nullable = false)
-  @NotEmpty(message = "Um restaurante deve ter o campo localização preenchido")
   public String localizacao;
 
   @Column(nullable = false)
-  @NotEmpty(message = "Um restaurante deve ter o campo cozinha preenchido")
   public String cozinha;
 
   @Column(nullable = false)
-  @NotNull(message = "Um restaurante deve ter o campo capacidade preenchido")
   public Integer capacidade;
 
   @OneToOne

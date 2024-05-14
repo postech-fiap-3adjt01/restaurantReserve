@@ -1,1 +1,0 @@
-Aqui ficam as classes que vão intermediar o uso do JPA

@@ -21,18 +21,14 @@ public class Horario {
   public UUID id;
 
   @Column(nullable = false)
-  @NotEmpty(message = "Um horário deve ter o campo abertura preenchido")
   private String abertura;
 
   @Column(name = "abertura_fim_de_semana", nullable = false)
-  @NotEmpty(message = "Um horário deve ter o campo abertura_fim_de_semana preenchido")
   private String aberturaFimDeSemana;
 
   @Column(nullable = false)
-  @NotEmpty(message = "Um horário deve ter o campo fechamento preenchido")
   private String fechamento;
 
   @Column(name = "fechamento_fim_de_semana", nullable = false)
-  @NotEmpty(message = "Um horário deve ter o campo fechamento_fim_de_semana preenchido")
   private String fechamentoFimDeSemana;
 }

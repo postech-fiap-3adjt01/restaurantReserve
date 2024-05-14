@@ -1,22 +1,16 @@
 package com.fiap.restaurante.usecases;
 
 import com.fiap.restaurante.entities.HorarioEntity;
-import com.fiap.restaurante.entities.ReservaEntity;
 import com.fiap.restaurante.entities.RestauranteEntity;
 import com.fiap.restaurante.external.persistance.entites.Restaurante;
-import com.fiap.restaurante.gatways.ReservaGateway;
 import com.fiap.restaurante.gatways.RestauranteGateway;
 import com.fiap.restaurante.interfaces.RestauranteCreateDto;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.TypedQuery;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
-import org.apache.coyote.BadRequestException;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 /**
- * Use case para registrar restaurante.
+ * Use case para restaurante.
  **/
 @Service
 @RequiredArgsConstructor
@@ -29,7 +23,7 @@ public class RestauranteUseCasesImpl implements RestauranteUseCases {
    * método para criar restaurante.
    **/
   @Override
-  public Restaurante create(RestauranteCreateDto dto) {
+  public RestauranteEntity create(RestauranteCreateDto dto) {
     HorarioEntity horario = HorarioEntity.builder()
             .abertura(dto.horarioDeAbertura())
             .fechamento(dto.horarioDeFechamento())
@@ -47,7 +41,7 @@ public class RestauranteUseCasesImpl implements RestauranteUseCases {
   }
 
   @Override
-  public List<Restaurante> findAll(String query) {
+  public List<RestauranteEntity> findAll(String query) {
     return restauranteGateway.findAll(query);
   }
 

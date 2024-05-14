@@ -30,11 +30,9 @@ public class Usuario {
   public UUID id;
 
   @Column(nullable = false)
-  @NotEmpty(message = "Um Usuario deve ter o campo email preenchido")
   public String email;
 
   @Column(nullable = false)
-  @NotEmpty(message = "Um Usuario deve ter o campo nome preenchido")
   public String nome;
 
   @OneToMany(mappedBy = "usuario")

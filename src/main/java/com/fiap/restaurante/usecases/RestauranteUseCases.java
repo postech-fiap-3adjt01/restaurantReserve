@@ -1,9 +1,7 @@
 package com.fiap.restaurante.usecases;
 
 import com.fiap.restaurante.entities.RestauranteEntity;
-import com.fiap.restaurante.external.persistance.entites.Restaurante;
 import com.fiap.restaurante.interfaces.RestauranteCreateDto;
-
 import java.util.List;
 
 /**
@@ -11,6 +9,6 @@ import java.util.List;
  **/
 public interface RestauranteUseCases {
 
-  Restaurante create(RestauranteCreateDto reservaEntity);
-  List<Restaurante> findAll(String query);
+  RestauranteEntity create(RestauranteCreateDto reservaEntity);
+  List<RestauranteEntity> findAll(String query);
 }

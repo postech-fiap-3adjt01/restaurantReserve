@@ -1,10 +1,10 @@
 package com.fiap.restaurante.controllers;
 
-
 import com.fiap.restaurante.controllers.exceptions.BadRequestException;
 import com.fiap.restaurante.controllers.exceptions.ValidationTrigger;
+import com.fiap.restaurante.interfaces.ReservaCreateDto;
 import com.fiap.restaurante.interfaces.RestauranteCreateDto;
-import com.fiap.restaurante.usecases.RestauranteUseCasesImpl;
+import com.fiap.restaurante.usecases.ReservaUseCasesImpl;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -13,22 +13,24 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.UUID;
+
 /**
- * Controller de Restaurante.
+ * Controller de Reserva.
  **/
 @RestController
-@RequestMapping("restaurante")
+@RequestMapping("reserva")
 @RequiredArgsConstructor
-public class RestauranteController {
+public class ReservaController {
 
-  private final RestauranteUseCasesImpl restauranteUseCases;
+  private final ReservaUseCasesImpl reservaUseCases;
 
   /**
-   * Procura por todos os restaurantes com query.
+   * Procura por todos as reservas.
    **/
-  @GetMapping
-  public ResponseEntity<Object> findAll(@RequestParam(required = false) String query) {
-    return new ResponseEntity<>(restauranteUseCases.findAll(query), HttpStatus.OK);
+  @GetMapping("/{id}")
+  public ResponseEntity<Object> findAll(@PathVariable UUID id) {
+    return new ResponseEntity<>(reservaUseCases.findAll(id), HttpStatus.OK);
   }
 
   /**
@@ -39,11 +41,11 @@ public class RestauranteController {
           produces = MediaType.APPLICATION_JSON_VALUE
   )
   public ResponseEntity<Object> create(
-          @RequestBody @Valid RestauranteCreateDto dto,
+          @RequestBody @Valid ReservaCreateDto dto,
           BindingResult bindingResult) throws BadRequestException {
     new ValidationTrigger(bindingResult).verify();
     try {
-      return ResponseEntity.status(HttpStatus.CREATED).body(restauranteUseCases.create(dto));
+      return ResponseEntity.status(HttpStatus.CREATED).body(reservaUseCases.create(dto));
     } catch (Exception error) {
       return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(error.getMessage());
     }

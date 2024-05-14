@@ -11,6 +11,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotEmpty;
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.UUID;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -36,11 +37,9 @@ public class Reserva {
   public UUID id;
 
   @Column(name = "start_date", nullable = false)
-  @NotEmpty(message = "Uma reserva deve ter o campo start_date preenchido")
   public LocalDateTime startDate;
 
   @Column(name = "expected_end_date", nullable = false)
-  @NotEmpty(message = "Uma reserva deve ter o campo start_date preenchido")
   public LocalDateTime expectedEndDate;
 
   @Column(name = "end_date")

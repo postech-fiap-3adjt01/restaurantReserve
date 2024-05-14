@@ -6,6 +6,7 @@ import java.time.LocalTime;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.apache.coyote.BadRequestException;
 
 /**
  * Entidade de Horario.
@@ -14,13 +15,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class HorarioEntity {
-  @NotEmpty(message = "Um horário deve ter o campo abertura preenchido")
   private LocalTime abertura;
-  @NotEmpty(message = "Um horário deve ter o campo abertura_fim_de_semana preenchido")
   private LocalTime aberturaFimDeSemana;
-  @NotEmpty(message = "Um horário deve ter o campo fechamento preenchido")
   private LocalTime fechamento;
-  @NotEmpty(message = "Um horário deve ter o campo fechamento_fim_de_semana preenchido")
   private LocalTime fechamentoFimDeSemana;
 
   public static HorarioEntity builder() {
