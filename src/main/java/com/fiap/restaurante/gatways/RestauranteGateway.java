@@ -1,22 +1,22 @@
 package com.fiap.restaurante.gatways;
 
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
+
+import org.springframework.stereotype.Service;
+
 import com.fiap.restaurante.controllers.exceptions.ControllerNotFoundException;
 import com.fiap.restaurante.entities.HorarioEntity;
 import com.fiap.restaurante.entities.RestauranteEntity;
 import com.fiap.restaurante.external.persistance.entites.Horario;
 import com.fiap.restaurante.external.persistance.entites.Restaurante;
 import com.fiap.restaurante.external.persistance.jparepositories.HorarioJpaRepository;
-
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
-import java.util.stream.Collectors;
-
 import com.fiap.restaurante.external.persistance.jparepositories.RestauranteJpaRepository;
+
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Service;
 
 
 /**
@@ -86,7 +86,7 @@ public class RestauranteGateway {
     }
     return restaurantes.stream()
             .map(this::convertDatabaseToDomain)
-            .collect(Collectors.toList());
+            .toList();
   }
 
   /**

@@ -11,4 +11,9 @@ public class EmailValidation {
         Matcher matcher = pattern.matcher(email);
         return matcher.matches();
     }
+    
+    private EmailValidation() {
+        throw new UnsupportedOperationException("This is a utility class and cannot be instantiated");
+    }
+
 }

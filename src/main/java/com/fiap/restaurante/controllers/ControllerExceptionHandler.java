@@ -42,7 +42,7 @@ public class ControllerExceptionHandler {
   public ResponseEntity<StandardError> badRequest(
           BadRequestException e, HttpServletRequest request) {
     HttpStatus status = HttpStatus.BAD_REQUEST;
-    System.out.println("Aqui");
+
     StandardError err = StandardError.builder()
             .timestamp(Instant.now())
             .status(status.value())

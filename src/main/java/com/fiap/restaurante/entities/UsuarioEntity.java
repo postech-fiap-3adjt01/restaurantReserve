@@ -1,12 +1,20 @@
 package com.fiap.restaurante.entities;
 
-import com.fiap.restaurante.external.persistance.entites.Comentario;
+import java.util.List;
+
 import org.apache.coyote.BadRequestException;
 
-import java.text.DateFormat;
-import java.util.List;
-import java.util.Locale;
+import com.fiap.restaurante.external.persistance.entites.Comentario;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 public class UsuarioEntity {
     private String email;
     private String nome;
@@ -14,7 +22,7 @@ public class UsuarioEntity {
     private List<Comentario> comentarios;
 
     public UsuarioEntity(String nome, String email) throws BadRequestException {
-        if(!EmailValidation.validate(email)) {
+        if(Boolean.FALSE.equals(EmailValidation.validate(email))) {
             throw new BadRequestException("O email utilizado não é válido");
         }
         this.nome = nome;

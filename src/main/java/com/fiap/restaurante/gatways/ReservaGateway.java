@@ -1,13 +1,15 @@
 package com.fiap.restaurante.gatways;
 
+import java.util.List;
+import java.util.UUID;
+
+import org.springframework.stereotype.Service;
+
 import com.fiap.restaurante.entities.ReservaEntity;
 import com.fiap.restaurante.external.persistance.entites.Reserva;
 import com.fiap.restaurante.external.persistance.jparepositories.ReservaJpaRepository;
-import java.util.List;
-import java.util.UUID;
-import java.util.stream.Collectors;
+
 import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Service;
 
 
 /**
@@ -30,8 +32,7 @@ public class ReservaGateway {
                     reserva.getStartDate(),
                     reserva.getExpectedEndDate(),
                     reserva.getEndDate()
-            ))
-            .collect(Collectors.toList());
+            )).toList();
   }
 
   public Reserva create(Reserva reserva) {

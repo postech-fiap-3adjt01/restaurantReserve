@@ -1,13 +1,15 @@
 package com.fiap.restaurante.usecases;
 
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
 import com.fiap.restaurante.entities.HorarioEntity;
 import com.fiap.restaurante.entities.RestauranteEntity;
-import com.fiap.restaurante.external.persistance.entites.Restaurante;
 import com.fiap.restaurante.gatways.RestauranteGateway;
 import com.fiap.restaurante.interfaces.RestauranteCreateDto;
-import java.util.List;
+
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
 
 /**
  * Use case para restaurante.

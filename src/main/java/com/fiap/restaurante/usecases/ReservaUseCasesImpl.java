@@ -1,16 +1,16 @@
 package com.fiap.restaurante.usecases;
 
+import java.util.List;
+import java.util.UUID;
+
+import org.springframework.stereotype.Service;
+
 import com.fiap.restaurante.entities.ReservaEntity;
-import com.fiap.restaurante.entities.RestauranteEntity;
 import com.fiap.restaurante.gatways.ReservaGateway;
 import com.fiap.restaurante.gatways.RestauranteGateway;
 import com.fiap.restaurante.interfaces.ReservaCreateDto;
-import java.time.DayOfWeek;
-import java.time.LocalDateTime;
-import java.util.List;
-import java.util.UUID;
+
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
 
 /**
  * Use case para Reservas.

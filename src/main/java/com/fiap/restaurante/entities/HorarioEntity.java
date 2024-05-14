@@ -1,12 +1,11 @@
 package com.fiap.restaurante.entities;
 
 
-import jakarta.validation.constraints.NotEmpty;
 import java.time.LocalTime;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.apache.coyote.BadRequestException;
 
 /**
  * Entidade de Horario.
