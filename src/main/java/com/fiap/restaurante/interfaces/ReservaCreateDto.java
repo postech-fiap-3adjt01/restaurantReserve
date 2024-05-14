@@ -11,6 +11,8 @@ public record ReservaCreateDto(
         @NotEmpty(message = " O campo startDate não pode estar em branco")
         String startDate,
         @NotEmpty(message = " O campo restauranteId não pode estar em branco")
-        UUID restauranteId
+        UUID restauranteId,
+        @NotEmpty(message = " O campo usuarioId não pode estar em branco")
+        UUID usuarioId
 ) {
 }
