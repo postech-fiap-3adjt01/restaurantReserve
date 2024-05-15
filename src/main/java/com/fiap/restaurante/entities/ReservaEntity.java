@@ -1,8 +1,11 @@
 package com.fiap.restaurante.entities;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 /**
@@ -15,6 +18,7 @@ public class ReservaEntity {
   private LocalDateTime startDate;
   private LocalDateTime expectedEndDate;
   private LocalDateTime endDate;
+  private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
 
   public static ReservaEntity builder() {
     return new ReservaEntity();

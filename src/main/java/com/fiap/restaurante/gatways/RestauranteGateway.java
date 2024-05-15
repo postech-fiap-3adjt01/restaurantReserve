@@ -58,7 +58,7 @@ public class RestauranteGateway {
             .horario(horarioCreated)
             .build();
     Restaurante restauranteSaved = this.restauranteJpaRepository.save(data);
-    return convertDatabaseToDomain(restauranteSaved);
+    return  RestauranteDatabaseToDomain.exec(restauranteSaved);
 
   }
 
@@ -70,7 +70,7 @@ public class RestauranteGateway {
     if (restaurante.isEmpty()) {
       throw new ControllerNotFoundException("Não tem um restaurante com este id");
     }
-    return this.convertDatabaseToDomain(restaurante.get());
+    return RestauranteDatabaseToDomain.exec(restaurante.get());
   }
 
   /**
@@ -85,7 +85,7 @@ public class RestauranteGateway {
       restaurantes = restauranteJpaRepository.findAll();
     }
     return restaurantes.stream()
-            .map(this::convertDatabaseToDomain)
+            .map(RestauranteDatabaseToDomain::exec)
             .toList();
   }
 
@@ -104,24 +104,4 @@ public class RestauranteGateway {
     return typedQuery.getResultList();
   }
 
-  /**
-   * Converte os resultados da database para domain.
-   **/
-  private RestauranteEntity convertDatabaseToDomain(Restaurante restaurante) {
-    HorarioEntity horarioEntity = HorarioEntity.builder()
-            .abertura(restaurante.getHorario().getAbertura())
-            .aberturaFimDeSemana(restaurante.getHorario().getAberturaFimDeSemana())
-            .fechamento(restaurante.getHorario().getFechamento())
-            .fechamentoFimDeSemana(restaurante.getHorario().getFechamentoFimDeSemana())
-            .build();
-
-    return RestauranteEntity
-            .builder()
-            .nome(restaurante.getNome())
-            .cozinha((restaurante.getCozinha()))
-            .capacidade(restaurante.getCapacidade())
-            .localizacao(restaurante.getLocalizacao())
-            .horario(horarioEntity)
-            .build();
-  }
 }
